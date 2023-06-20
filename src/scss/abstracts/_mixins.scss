@@ -1,0 +1,17 @@
+@mixin transition(
+  $property: all,
+  $duration: 0.3s,
+  $timing-function: ease-in-out
+) {
+  transition: $property $duration $timing-function;
+}
+
+@mixin boxshadow(
+  $x: 0px,
+  $y: 2px,
+  $blur: 2px,
+  $spread: -2px,
+  $color: rgba(0, 0, 0, 0.2)
+) {
+  box-shadow: $x $y $blur $spread $color;
+}

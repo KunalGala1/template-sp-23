@@ -1,0 +1,11 @@
+@mixin serif() {
+  font-family: 'Lora', serif;
+}
+
+@mixin sans() {
+  font-family: 'Open Sans', sans-serif;
+}
+
+@mixin mono() {
+  font-family: 'Roboto Mono', monospace;
+}

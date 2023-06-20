@@ -1,0 +1,44 @@
+@use '../abstracts/' as a;
+@use '../layout' as l;
+@use '../theme/' as t;
+
+.btn-primary {
+  background-color: var(--main);
+  color: var(--200);
+
+  @include t.sans;
+  @include l.radius(sm);
+  @include a.transition;
+  @include l.padding(xs, sm);
+  &:hover {
+    background-color: var(--main-hover);
+  }
+
+  width: 100%;
+}
+
+.success-btn {
+  background-color: var(--success);
+  @include t.sans;
+  @include l.radius(sm);
+  @include a.transition;
+  @include l.padding(xs, sm);
+  &:hover {
+    background-color: var(--success-hover);
+  }
+
+  width: 100%;
+}
+
+.success-btn {
+  background-color: var(--danger);
+  @include t.sans;
+  @include l.radius(sm);
+  @include a.transition;
+  @include l.padding(xs, sm);
+  &:hover {
+    background-color: var(--danger-hover);
+  }
+
+  width: 100%;
+}

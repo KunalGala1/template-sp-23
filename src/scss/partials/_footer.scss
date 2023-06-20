@@ -1,0 +1,14 @@
+@use '../abstracts/' as a;
+@use '../layout' as l;
+@use '../theme/' as t;
+
+footer {
+  background-color: var(--main);
+  @include l.padding(lg);
+
+  .copyright {
+    color: var(--100);
+    font-size: 12px;
+    text-align: center;
+  }
+}

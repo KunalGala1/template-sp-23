@@ -1,0 +1,50 @@
+@use '../abstracts/' as a;
+@use '../layout' as l;
+@use '../theme/' as t;
+
+nav {
+  @include a.boxshadow;
+  position: sticky;
+  top: 0;
+
+  background-color: var(--main);
+  @include t.serif;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  li {
+    & + li {
+      margin-left: 30px;
+    }
+  }
+
+  a {
+    &:hover,
+    &.active {
+      color: white;
+      @include a.transition;
+    }
+  }
+}
+
+.burger {
+  cursor: pointer;
+
+  div {
+    background-color: var(--200);
+
+    width: 16px;
+    height: 3px;
+
+    & + div {
+      margin-top: 2px;
+    }
+  }
+}

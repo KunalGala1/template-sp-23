@@ -1,0 +1,200 @@
+:root {
+  /* UTILITY */
+  --success: #198754;
+  --success-hover: #198754;
+  --danger: #b00020;
+  --danger-hover: #b00020;
+  /* COMPONENTS */
+  --btn-primary: var(--main);
+  /* MONOCHROME */
+  --247: rgb(247, 247, 247);
+  --235: rgb(235, 235, 235);
+  --220: rgb(220, 220, 220);
+  --200: rgb(200, 200, 200);
+  --180: rgb(180, 180, 180);
+  --160: rgb(160, 160, 160);
+  --140: rgb(140, 140, 140);
+  --120: rgb(120, 120, 120);
+  --100: rgb(100, 100, 100);
+  --80: rgb(80, 80, 80);
+  --60: rgb(60, 60, 60);
+  --40: rgb(40, 40, 40);
+  --20: rgb(20, 20, 20);
+  --8: rgb(8, 8, 8);
+  /* MAIN */
+  --main: rgb(45, 71, 125);
+  --main-hover: rgb(45, 71, 125);
+  /* SECOND */
+  --second: rgb(16, 100, 32);
+}
+
+.btn-primary {
+  background-color: var(--main);
+  color: var(--200);
+  font-family: "Open Sans", sans-serif;
+  border-radius: 0.3rem;
+  transition: all 0.3s ease-in-out;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+}
+.btn-primary:hover {
+  background-color: var(--main-hover);
+}
+
+.success-btn {
+  background-color: var(--success);
+  font-family: "Open Sans", sans-serif;
+  border-radius: 0.3rem;
+  transition: all 0.3s ease-in-out;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+}
+.success-btn:hover {
+  background-color: var(--success-hover);
+}
+
+.success-btn {
+  background-color: var(--danger);
+  font-family: "Open Sans", sans-serif;
+  border-radius: 0.3rem;
+  transition: all 0.3s ease-in-out;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+}
+.success-btn:hover {
+  background-color: var(--danger-hover);
+}
+
+.primary-form {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 60px;
+  padding-right: 60px;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  background-color: var(--235);
+}
+.primary-form .item + .item {
+  margin-top: 15px;
+}
+.primary-form .item .subitem label,
+.primary-form .item .subitem input,
+.primary-form .item .subitem textarea {
+  font-family: "Open Sans", sans-serif;
+}
+.primary-form .item .subitem label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+.primary-form .item .subitem input,
+.primary-form .item .subitem textarea {
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 18px;
+  resize: none;
+}
+.primary-form .item .subitem input:focus,
+.primary-form .item .subitem textarea:focus {
+  outline: solid 1px var(--200);
+}
+.primary-form .item .subitem textarea {
+  height: 200px;
+}
+
+blockquote {
+  font-style: italic;
+}
+
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  background-color: var(--main);
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+}
+aside .bottom {
+  margin-top: auto;
+}
+
+footer {
+  background-color: var(--main);
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+footer .copyright {
+  color: var(--100);
+  font-size: 12px;
+  text-align: center;
+}
+
+nav {
+  box-shadow: 0px 2px 2px -2px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  background-color: var(--main);
+  font-family: "Lora", serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav ul {
+  display: flex;
+  justify-content: space-around;
+}
+nav li + li {
+  margin-left: 30px;
+}
+nav a:hover, nav a.active {
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.burger {
+  cursor: pointer;
+}
+.burger div {
+  background-color: var(--200);
+  width: 16px;
+  height: 3px;
+}
+.burger div + div {
+  margin-top: 2px;
+}
+
+#login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#login main h1,
+#login main p,
+#login main a {
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 0;
+  padding-right: 0;
+  font-family: "Open Sans", sans-serif;
+}
+#login main form {
+  width: 400px;
+}

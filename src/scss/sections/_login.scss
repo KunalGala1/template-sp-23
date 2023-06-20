@@ -1,0 +1,23 @@
+@use '../abstracts/' as a;
+@use '../layout/' as l;
+@use '../theme/' as t;
+
+#login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  main {
+    h1,
+    p,
+    a {
+      text-align: center;
+      @include l.padding(xs, 0);
+      @include t.sans;
+    }
+
+    form {
+      width: map-get(l.$width, login);
+    }
+  }
+}

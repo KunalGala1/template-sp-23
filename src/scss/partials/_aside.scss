@@ -1,0 +1,23 @@
+@use '../abstracts/' as a;
+@use '../layout' as l;
+@use '../theme/' as t;
+
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: map-get(l.$width, aside);
+  height: 100vh;
+  background-color: var(--main);
+  display: flex;
+  flex-direction: column;
+  @include t.sans;
+
+  .top {
+  }
+  .middle {
+  }
+  .bottom {
+    margin-top: auto;
+  }
+}
