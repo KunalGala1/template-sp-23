@@ -9,7 +9,6 @@ nav {
   top: 0;
 
   background-color: var(--main);
-  @include t.serif;
 
   display: flex;
   justify-content: space-between;
@@ -37,6 +36,7 @@ nav {
 }
 
 .burger {
+  display: none;
   cursor: pointer;
 
   div {

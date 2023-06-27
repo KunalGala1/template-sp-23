@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const terser = require('gulp-terser');
 
-const Images = ['src/img/*.jpg'];
+const Images = ['src/img/*'];
 const JSFiles = ['src/js/*.js'];
 
 gulp.task('handleImages', cb => {

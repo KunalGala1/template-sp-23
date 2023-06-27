@@ -17,7 +17,7 @@
     }
 
     form {
-      width: map-get(l.$width, login);
+      width: map-get(l.$size, login);
     }
   }
 }

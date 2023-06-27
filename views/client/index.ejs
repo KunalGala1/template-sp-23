@@ -12,6 +12,10 @@
     <%- include('../partials/head') %>
   </head>
   <body>
-    <%- include('../partials/nav') %> <%- include('../partials/footer') %>
+    <%- include('../partials/nav') %>
+    <script>
+      document.querySelector('nav ul li:first-child a').classList.add('active');
+    </script>
+    <%- include('../partials/footer') %>
   </body>
 </html>
