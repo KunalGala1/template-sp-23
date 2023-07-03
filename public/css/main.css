@@ -31,7 +31,7 @@
 .btn-primary {
   background-color: var(--main);
   color: var(--200);
-  font-family: "Open Sans", sans-serif;
+  font-family: "Lato", sans-serif;
   border-radius: 0.3rem;
   transition: all 0.3s ease-in-out;
   padding-top: 5px;
@@ -46,7 +46,7 @@
 
 .success-btn {
   background-color: var(--success);
-  font-family: "Open Sans", sans-serif;
+  font-family: "Lato", sans-serif;
   border-radius: 0.3rem;
   transition: all 0.3s ease-in-out;
   padding-top: 5px;
@@ -61,7 +61,7 @@
 
 .success-btn {
   background-color: var(--danger);
-  font-family: "Open Sans", sans-serif;
+  font-family: "Lato", sans-serif;
   border-radius: 0.3rem;
   transition: all 0.3s ease-in-out;
   padding-top: 5px;
@@ -88,7 +88,7 @@
 .primary-form .item .subitem label,
 .primary-form .item .subitem input,
 .primary-form .item .subitem textarea {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 .primary-form .item .subitem label {
   display: block;
@@ -117,6 +117,35 @@ blockquote {
   font-style: italic;
 }
 
+.toast-notification {
+  position: fixed;
+  top: 10px;
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 9999;
+  width: max-content;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-family: "Lato", sans-serif;
+  border-radius: 0.4rem;
+  box-shadow: 0px 8px 24px 0px rgba(149, 157, 165, 0.2);
+  color: var(--247);
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+}
+.toast-notification.active {
+  opacity: 1;
+}
+.toast-notification.success {
+  background-color: var(--success);
+}
+.toast-notification.danger {
+  background-color: var(--danger);
+}
+
 aside {
   position: fixed;
   top: 0;
@@ -126,7 +155,7 @@ aside {
   background-color: var(--main);
   display: flex;
   flex-direction: column;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 aside .bottom {
   margin-top: auto;
@@ -154,7 +183,6 @@ nav {
   position: sticky;
   top: 0;
   background-color: var(--main);
-  font-family: "Lora", serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -175,6 +203,7 @@ nav a:hover, nav a.active {
 }
 
 .burger {
+  display: none;
   cursor: pointer;
 }
 .burger div {
@@ -200,7 +229,7 @@ nav a:hover, nav a.active {
   padding-bottom: 5px;
   padding-left: 0;
   padding-right: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 #login main form {
   width: 400px;
