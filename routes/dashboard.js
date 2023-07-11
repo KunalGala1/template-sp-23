@@ -12,9 +12,15 @@ const { forwardAuthenticated } = require('../config/auth');
 const { ensureAuthenticated } = require('../config/auth');
 
 router.get('/', ensureAuthenticated, (req, res) => {
-  res.render('admin/dashboard', {
-    name: req.user.username,
-  });
+  res.render('admin/dashboard');
+});
+
+router.get('/events', ensureAuthenticated, (req, res) => {
+  res.render('admin/events');
+});
+
+router.get('/about', ensureAuthenticated, (req, res) => {
+  res.render('admin/about');
 });
 
 module.exports = router;

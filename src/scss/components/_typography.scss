@@ -2,12 +2,77 @@
 @use '../layout' as l;
 @use '../theme/' as t;
 
+/* Headers */
+
 .primary-header {
 }
 
 .secondary-header {
 }
 
+/* Subheaders */
+
+.primary-subheader {
+}
+
+.secondary-subheader {
+}
+
+/* Paragraphs */
+
+.primary-text {
+}
+
+.secondary-text {
+}
+
+/* Links */
+
+.primary-link {
+}
+
+.nav-link {
+  text-transform: capitalize;
+  color: var(--200);
+  &:hover,
+  &.active {
+    color: white;
+    @include a.transition;
+  }
+}
+
+.aside-link {
+  text-transform: capitalize;
+  color: var(--200);
+  display: block;
+  @include l.padding(sm);
+  span {
+    margin-left: 5px;
+  }
+
+  &:hover {
+    background-color: var(--main-hover);
+    color: white;
+  }
+
+  &.active {
+    border-left: solid 5px var(--main-hover);
+  }
+
+  @include a.transition;
+}
+
+/* Blockquotes */
+
 blockquote {
   font-style: italic;
+}
+
+.primary-quote {
+}
+
+/* Spans */
+
+span.wrap {
+  display: inline-block;
 }

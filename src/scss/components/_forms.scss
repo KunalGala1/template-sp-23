@@ -2,42 +2,52 @@
 @use '../layout' as l;
 @use '../theme/' as t;
 
+.form {
+  label,
+  input,
+  textarea {
+    @include t.util;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    text-transform: capitalize;
+    color: var(--main);
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    resize: none;
+    border: none;
+    @include l.padding(sm);
+    @include l.radius(md);
+    &:focus {
+      outline: solid 1px var(--200);
+    }
+  }
+
+  .item + .item {
+    margin-top: 30px;
+  }
+}
+
 .primary-form {
   @include l.padding(lg);
   border: solid 1px rgba(0, 0, 0, 0.1);
   background-color: var(--235);
-  .item {
-    & + .item {
-      margin-top: 15px;
-    }
+}
 
-    .subitem {
-      label,
-      input,
-      textarea {
-        @include t.sans;
-      }
+.dashboard-form {
+  input,
+  textarea {
+    background-color: var(--dashboard-form);
+    color: var(--247);
+  }
 
-      label {
-        display: block;
-        margin-bottom: 5px;
-        font-size: 12px;
-      }
-
-      input,
-      textarea {
-        width: 100%;
-        @include l.padding(sm);
-        font-size: 18px;
-        resize: none;
-        &:focus {
-          outline: solid 1px var(--200);
-        }
-      }
-
-      textarea {
-        height: 200px;
-      }
-    }
+  input[type='hidden'] + .item {
+    margin-top: 30px;
   }
 }

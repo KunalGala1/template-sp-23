@@ -4,14 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Dashboard | Events</title>
     <%- include('../partials/head') %>
   </head>
   <body>
-    <%- include('../partials/nav') %>
+    <%- include('../partials/aside') %>
     <script>
-      document.querySelector('nav ul li:nth-child(1) a').classList.add('active');
+      document.querySelector('aside .middle ul li:nth-child(1) a').classList.add('active');
     </script>
-    <%- include('../sections/hero') %> <%- include('../partials/footer') %>
+    <main class="sp-aside-left">
+      <h1>Events</h1>
+    </main>
   </body>
 </html>

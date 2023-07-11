@@ -24,15 +24,10 @@ nav {
       margin-left: 30px;
     }
   }
+}
 
-  a {
-    color: var(--200);
-    &:hover,
-    &.active {
-      color: white;
-      @include a.transition;
-    }
-  }
+.logo {
+  width: 50px;
 }
 
 .burger {

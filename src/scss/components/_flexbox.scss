@@ -1,0 +1,42 @@
+@use '../abstracts/' as a;
+@use '../layout' as l;
+@use '../theme/' as t;
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Justify Content */
+  &.justify-start {
+    justify-content: flex-start;
+  }
+  &.justify-end {
+    justify-content: flex-end;
+  }
+  &.justify-between {
+    justify-content: space-between;
+  }
+  &.justify-around {
+    justify-content: space-around;
+  }
+  &.justify-evenly {
+    justify-content: space-evenly;
+  }
+  /* Align Items */
+  &.align-start {
+    align-items: flex-start;
+  }
+  &.align-end {
+    align-items: flex-end;
+  }
+  &.align-basline {
+    align-items: basline;
+  }
+  &.align-stretch {
+    align-items: stretch;
+  }
+  /* Gap */
+  &.gap {
+    gap: 30px;
+  }
+}

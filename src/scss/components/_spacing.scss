@@ -1,0 +1,11 @@
+@use '../abstracts/' as a;
+@use '../layout' as l;
+@use '../theme/' as t;
+
+.sp-top {
+  margin-top: 30px;
+}
+
+.sp-aside-left {
+  margin-left: map-get(l.$spacing, aside);
+}
