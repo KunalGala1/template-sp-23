@@ -1,7 +1,13 @@
-@mixin transition($property: all, $duration: 0.3s, $timing-function: ease-in-out) {
+/* Transition */
+@mixin transition(
+  $property: all,
+  $duration: 0.3s,
+  $timing-function: ease-in-out
+) {
   transition: $property $duration $timing-function;
 }
 
+/* Box Shadow */
 $bs: (
   sm: 0px 2px 2px 0px rgb(0, 0, 0, 0.25),
   md: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
@@ -13,5 +19,24 @@ $bs: (
     box-shadow: map-get($bs, $key);
   } @else {
     box-shadow: $key;
+  }
+}
+
+/* Gradient */
+@mixin gradient($direction: to right, $color-1: #9890e3, $color-2: #b1f4cf) {
+  background-image: linear-gradient($direction, $color-1, $color-2);
+}
+
+/* Text Shadow */
+$ts: (
+  md-dark: 2px 3px 5px rgba(0, 0, 0, 0.3),
+  md-light: 2px 3px 5px rgba(150, 150, 150, 0.3),
+);
+
+@mixin textshadow($key: md-dark) {
+  @if map-has-key($ts, $key) {
+    text-shadow: map-get($ts, $key);
+  } @else {
+    text-shadow: $key;
   }
 }

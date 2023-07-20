@@ -1,8 +1,11 @@
-@use '../abstracts/' as a;
-@use '../layout' as l;
-@use '../theme/' as t;
+@use "../abstracts/" as a;
+@use "../layout" as l;
+@use "../theme/" as t;
 
 /* Headers */
+
+.header {
+}
 
 .primary-header {
 }
@@ -27,6 +30,9 @@
 }
 
 /* Links */
+
+.link {
+}
 
 .primary-link {
 }

@@ -4,6 +4,19 @@ export const responseAction = (name, method, data) => {
     name: {
       method: () => {},
     },
+    // Event
+    event: {
+      post: () => {
+        window.location.replace(
+          `/dashboard/events/${data.newDocument._id}/edit`
+        );
+      },
+      delete: () => {
+        document
+          .querySelector(`[data-event-id="${data.deletedDocument._id}"]`)
+          .remove();
+      },
+    },
   };
 
   if (actions[name] && actions[name][method]) {

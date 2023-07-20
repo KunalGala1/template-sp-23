@@ -22,13 +22,13 @@ $mw: (
 }
 
 $radius: (
-  xxs: 2px,
+  xxs: 2.5px,
   xs: 5px,
   sm: 10px,
   md: 15px,
-  lg: 20px,
-  xl: 25px,
-  xxl: 30px,
+  lg: 30px,
+  xl: 50px,
+  xxl: 70px,
 ) !default;
 
 @mixin radius($key) {

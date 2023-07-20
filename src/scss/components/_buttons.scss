@@ -1,13 +1,15 @@
-@use '../abstracts/' as a;
-@use '../layout' as l;
-@use '../theme/' as t;
+@use "../abstracts/" as a;
+@use "../layout" as l;
+@use "../theme/" as t;
 
 .btn {
+  @include a.transition;
   @include a.boxshadow(sm);
   @include l.padding(xs, sm);
   @include l.radius(sm);
   @include t.sans;
-  @include a.transition;
+
+  display: inline-block;
 }
 
 .btn-primary {
@@ -25,14 +27,14 @@
   }
 }
 
-.success-btn {
+.btn-success {
   background-color: var(--success);
   &:hover {
     background-color: var(--success-hover);
   }
 }
 
-.danger-btn {
+.btn-danger {
   background-color: var(--danger);
   &:hover {
     background-color: var(--danger-hover);
