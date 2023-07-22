@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const handleScroll = () => {
-    let buffer = window.innerWidth < 450 ? -575 : 100;
+    let buffer = 0;
 
     animationElements.forEach((el) => {
       const isOnScreen =

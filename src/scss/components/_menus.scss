@@ -1,0 +1,15 @@
+@use "../abstracts/" as a;
+@use "../layout" as l;
+@use "../theme/" as t;
+
+.nav-menu {
+  display: flex;
+  justify-content: space-around;
+
+  & > li + li {
+    margin-left: 30px;
+  }
+}
+
+.drop-down-menu {
+}

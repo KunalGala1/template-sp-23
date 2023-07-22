@@ -40,10 +40,10 @@
 .nav-link {
   text-transform: capitalize;
   color: var(--200);
+  @include a.transition;
   &:hover,
   &.active {
     color: white;
-    @include a.transition;
   }
 }
 

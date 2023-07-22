@@ -4,19 +4,20 @@
 
 [data-animation] {
   transition-duration: 0.5s;
+  transition-delay: 0.25s;
 }
 
 /* Transition Options */
 
 // Delay
 [data-delay="sm"] {
-  transition-delay: 0.25s;
-}
-[data-delay="md"] {
   transition-delay: 0.5s;
 }
-[data-delay="lg"] {
+[data-delay="md"] {
   transition-delay: 0.75s;
+}
+[data-delay="lg"] {
+  transition-delay: 1s;
 }
 
 // Duration
@@ -68,6 +69,7 @@
 
 /* Keyframes ================================================ */
 
+// Shake
 [data-hover="shake"]:hover {
   animation: shake 0.5s;
 }
@@ -90,6 +92,7 @@
   }
 }
 
+// Rotate
 [data-hover="rotate"]:hover {
   animation: rotate 0.5s;
 }
@@ -112,6 +115,7 @@
   }
 }
 
+// Pulse
 [data-hover="pulse"]:hover {
   animation: pulse 0.5s;
 }
@@ -125,5 +129,27 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+// Underline
+[data-hover="underline"] {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    height: 1px;
+    width: 0%;
+    background-color: white;
+    @include a.transition;
+  }
+
+  &:hover,
+  &.active {
+    &::after {
+      width: 100%;
+    }
   }
 }

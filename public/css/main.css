@@ -35,19 +35,20 @@
 
 [data-animation] {
   transition-duration: 0.5s;
+  transition-delay: 0.25s;
 }
 
 /* Transition Options */
 [data-delay=sm] {
-  transition-delay: 0.25s;
-}
-
-[data-delay=md] {
   transition-delay: 0.5s;
 }
 
-[data-delay=lg] {
+[data-delay=md] {
   transition-delay: 0.75s;
+}
+
+[data-delay=lg] {
+  transition-delay: 1s;
 }
 
 [data-duration=fast] {
@@ -147,8 +148,25 @@
     transform: scale(1);
   }
 }
+[data-hover=underline] {
+  position: relative;
+}
+[data-hover=underline]::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 1px;
+  width: 0%;
+  background-color: white;
+  transition: all 0.2s ease-in-out;
+}
+[data-hover=underline]:hover::after, [data-hover=underline].active::after {
+  width: 100%;
+}
+
 .btn {
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
   padding-top: 5px;
   padding-bottom: 5px;
@@ -320,6 +338,14 @@
   border-radius: 15px;
 }
 
+.nav-menu {
+  display: flex;
+  justify-content: space-around;
+}
+.nav-menu > li + li {
+  margin-left: 30px;
+}
+
 .sp-top {
   margin-top: 30px;
 }
@@ -335,7 +361,7 @@
   transform: translateX(50%);
   z-index: 9999;
   width: max-content;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding-top: 5px;
   padding-bottom: 5px;
@@ -364,10 +390,10 @@
 .nav-link {
   text-transform: capitalize;
   color: var(--200);
+  transition: all 0.2s ease-in-out;
 }
 .nav-link:hover, .nav-link.active {
   color: white;
-  transition: all 0.3s ease-in-out;
 }
 
 .aside-link {
@@ -378,7 +404,7 @@
   padding-bottom: 15px;
   padding-left: 15px;
   padding-right: 15px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .aside-link span {
   margin-left: 5px;
@@ -442,13 +468,6 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
-nav ul {
-  display: flex;
-  justify-content: space-around;
-}
-nav li + li {
-  margin-left: 30px;
-}
 
 .logo {
   width: 50px;
@@ -460,11 +479,25 @@ nav li + li {
 }
 .burger div {
   background-color: var(--200);
-  width: 16px;
-  height: 3px;
+  width: 40px;
+  height: 4px;
+  border-radius: 15px;
 }
 .burger div + div {
-  margin-top: 2px;
+  margin-top: 4px;
+}
+
+/* Tablet --> Mobile View */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+  }
 }
 
 #login {

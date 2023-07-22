@@ -1,6 +1,6 @@
-@use '../abstracts/' as a;
-@use '../layout' as l;
-@use '../theme/' as t;
+@use "../abstracts/" as a;
+@use "../layout" as l;
+@use "../theme/" as t;
 
 nav {
   @include a.boxshadow;
@@ -13,17 +13,6 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  ul {
-    display: flex;
-    justify-content: space-around;
-  }
-
-  li {
-    & + li {
-      margin-left: 30px;
-    }
-  }
 }
 
 .logo {
@@ -37,11 +26,26 @@ nav {
   div {
     background-color: var(--200);
 
-    width: 16px;
-    height: 3px;
+    width: 40px;
+    height: 4px;
+    @include l.radius(md);
 
     & + div {
-      margin-top: 2px;
+      margin-top: 4px;
     }
+  }
+}
+
+/* Tablet --> Mobile View */
+nav ul {
+  @include l.max(md) {
+    display: none;
+    // ... mobile menu styling here
+  }
+}
+
+.burger {
+  @include l.max(md) {
+    display: block;
   }
 }

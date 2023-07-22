@@ -5,19 +5,55 @@
     </a>
   </div>
 
-  <ul>
-    <% const navLinks = [
-      { href: "/", text: "home" },
-      { href: "/about", text: "about" },
-      { href: "/events", text: "events" },
-      { href: "/contact", text: "contact" }
-    ];
+  <% const navLinks = [
+    { text: "home", classList: { text: 'nav-link' } },
+    { text: "about", classList: { text: 'nav-link' } },
+    { text: "events", classList: { text: 'nav-link' } },
+    { text: "contact", classList: { text: 'nav-link' } },
+    {
+      text: 'profile',
+      classList: { text: 'nav-link', listItem: 'drop-down-menu' },
+      menu: [
+        { href: "/profile", text: "profile" },
+        { href: "/profile/settings", text: "settings" },
+        { href: "/profile/logout", text: "logout" }
+      ],
+      href: null
+    }
+  ];
 
-    navLinks.forEach(link => {    
+  const setHref = item => {
+  if (item && item.href !== null) {
+    return item.href || (item.text.toLowerCase() === 'home' ? '/' : `/${item.text}`);
+  }
+  return false;
+};
+
+
+  const generateNavigation = items => {
+    items.forEach(item => {
+      if (!item) return; // Skip if item is undefined or null
+      const href = setHref(item);
+      const textClass = item.classList && item.classList.text ? item.classList.text : '';
+      const liClass = item.classList && item.classList.listItem ? item.classList.listItem : '';
     %>
-    <li><a href="<%= link.href %>" class="nav-link"><%= link.text %></a></li>
-    <% });
-    %>
+  <li class="<%= liClass %>">
+    <% if (href) { %>
+    <a class="<%= textClass %>" href="<%= href %>"><%= item.text %></a>
+    <% } else { %>
+    <span class="<%= textClass %>"><%= item.text %></span>
+    <% } %>
+    <% if (item.menu) { %>
+    <ul>
+      <% generateNavigation(item.menu); %>
+    </ul>
+    <% } %>
+  </li>
+  <% }) %>
+  <% } %>
+
+  <ul class="nav-menu">
+    <% generateNavigation(navLinks); %>
   </ul>
 
   <div class="burger">
@@ -29,7 +65,8 @@
 
 <script>
   const currentPath = window.location.pathname.replace(/\/$/, '');
-  document.querySelectorAll('nav ul li a').forEach(link => {
+  document.querySelectorAll('.nav-link').forEach(link => {
     link.classList.toggle('active', link.getAttribute('href') === currentPath || (link.getAttribute('href') === '/' && currentPath === ''));
+    link.setAttribute('data-hover', 'underline'); // optional
   });
 </script>
