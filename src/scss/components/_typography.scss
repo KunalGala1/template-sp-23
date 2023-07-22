@@ -38,7 +38,6 @@
 }
 
 .nav-link {
-  text-transform: capitalize;
   color: var(--200);
   @include a.transition;
   &:hover,
@@ -47,8 +46,20 @@
   }
 }
 
+.drop-down-link {
+  color: white;
+
+  @include l.radius(xs);
+  @include l.padding(xs, sm);
+
+  display: block; // fill width of <li> and apply padding
+
+  &:hover {
+    background-color: rgb(255, 255, 255, 0.1);
+  }
+}
+
 .aside-link {
-  text-transform: capitalize;
   color: var(--200);
   display: block;
   @include l.padding(sm);

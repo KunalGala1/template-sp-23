@@ -12,4 +12,41 @@
 }
 
 .drop-down-menu {
+  background: rgba(0, 0, 0, 40%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 5%);
+  @include l.padding(xs, 0);
+  @include l.radius(xs);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  position: absolute;
+  top: 100%;
+  left: -15px;
+
+  min-width: calc(100% + (15px * 2));
+}
+
+.drop-down-menu--parent {
+  span {
+    cursor: pointer;
+    color: var(--200);
+    &:hover {
+      color: white;
+    }
+  }
+
+  & > li + li {
+    margin-top: 15px;
+  }
+
+  ul {
+    display: none;
+  }
+  &:hover ul {
+    display: flex;
+  }
+
+  position: relative;
 }

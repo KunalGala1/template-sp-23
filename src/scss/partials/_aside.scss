@@ -1,6 +1,6 @@
-@use '../abstracts/' as a;
-@use '../layout' as l;
-@use '../theme/' as t;
+@use "../abstracts/" as a;
+@use "../layout" as l;
+@use "../theme/" as t;
 
 aside {
   position: fixed;
@@ -12,6 +12,8 @@ aside {
   display: flex;
   flex-direction: column;
   @include t.sans;
+
+  text-transform: capitalize;
 
   .top {
   }
