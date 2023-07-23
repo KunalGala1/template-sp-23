@@ -8,7 +8,7 @@ aside {
   left: 0;
   width: map-get(l.$spacing, aside);
   height: 100vh;
-  background-color: var(--main);
+  background-color: var(--dashboard);
   display: flex;
   flex-direction: column;
   @include t.sans;

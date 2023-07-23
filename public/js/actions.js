@@ -13,7 +13,7 @@ export const responseAction = (name, method, data) => {
       },
       delete: () => {
         document
-          .querySelector(`[data-event-id="${data.deletedDocument._id}"]`)
+          .querySelector(`[data-id="${data.deletedDocument._id}"]`)
           .remove();
       },
     },

@@ -6,7 +6,7 @@
   @include a.transition;
   @include a.boxshadow(sm);
   @include l.padding(xs, sm);
-  @include l.radius(sm);
+  @include l.radius(xs);
   @include t.sans;
 
   display: inline-block;
@@ -38,5 +38,13 @@
   background-color: var(--danger);
   &:hover {
     background-color: var(--danger-hover);
+  }
+}
+
+.btn-dashboard {
+  background-color: var(--dashboard);
+  color: white;
+  &:hover {
+    background-color: var(--dashboard-hover);
   }
 }

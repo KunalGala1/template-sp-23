@@ -13,7 +13,7 @@
   @include a.transition;
   @include a.boxshadow(md);
   @include l.padding(xs, sm);
-  @include l.radius(md);
+  @include l.radius(xs);
   @include t.sans;
 
   color: var(--247);

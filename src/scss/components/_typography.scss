@@ -13,12 +13,27 @@
 .secondary-header {
 }
 
+.dashboard-table-header {
+  @include t.util;
+  font-size: 20px;
+  color: var(--dashboard);
+  text-transform: capitalize;
+}
+
 /* Subheaders */
 
 .primary-subheader {
 }
 
 .secondary-subheader {
+}
+
+.dashboard-table-subheader {
+  @include t.util;
+  font-size: 16px;
+  color: var(--100);
+  font-weight: 300;
+  text-transform: uppercase;
 }
 
 /* Paragraphs */
@@ -68,15 +83,35 @@
   }
 
   &:hover {
-    background-color: var(--main-hover);
+    background-color: var(--dashboard-hover);
     color: white;
   }
 
   &.active {
-    border-left: solid 5px var(--main-hover);
+    border-left: solid 5px var(--dashboard-hover);
   }
 
   @include a.transition;
+}
+
+.icon-link {
+  @include a.transition;
+  @include l.radius(50%);
+  height: 25px;
+  width: 25px;
+
+  i {
+    font-size: 13px;
+    color: var(--140);
+    @include a.transition;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    i {
+      color: var(--20);
+    }
+  }
 }
 
 /* Blockquotes */

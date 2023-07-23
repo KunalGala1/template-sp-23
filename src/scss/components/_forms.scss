@@ -3,6 +3,8 @@
 @use "../theme/" as t;
 
 .form {
+  @include l.radius(xs);
+
   label,
   input,
   select,
@@ -30,7 +32,7 @@
     resize: none;
     border: none;
     @include l.padding(sm);
-    @include l.radius(md);
+    @include l.radius(xs);
     &:focus {
       outline: solid 1px var(--200);
     }

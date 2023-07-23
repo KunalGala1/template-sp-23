@@ -92,7 +92,7 @@ lists.forEach((list) => {
     }
 
     const data = await Model.find({});
-    options[model || name] = data;
+    options.data = data;
 
     res.render("admin/" + name, options);
   });

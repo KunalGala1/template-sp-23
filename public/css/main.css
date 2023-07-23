@@ -10,6 +10,8 @@
   --danger-hover: #b00020;
   /* COMPONENTS */
   --dashboard-form: rgb(48, 66, 85);
+  --dashboard: rgb(42, 101, 76);
+  --dashboard-hover: rgb(59, 145, 109);
   --btn-primary: var(--main);
   /* MONOCHROME */
   --247: rgb(247, 247, 247);
@@ -172,7 +174,7 @@
   padding-bottom: 5px;
   padding-left: 15px;
   padding-right: 15px;
-  border-radius: 10px;
+  border-radius: 5px;
   font-family: "Lato", sans-serif;
   display: inline-block;
 }
@@ -204,6 +206,14 @@
 }
 .btn-danger:hover {
   background-color: var(--danger-hover);
+}
+
+.btn-dashboard {
+  background-color: var(--dashboard);
+  color: white;
+}
+.btn-dashboard:hover {
+  background-color: var(--dashboard-hover);
 }
 
 .flex {
@@ -268,7 +278,7 @@
   gap: 30px;
 }
 .flex.gap-sm {
-  gap: 20px;
+  gap: 10px;
 }
 .flex.gap-md {
   gap: 40px;
@@ -277,6 +287,9 @@
   gap: 60px;
 }
 
+.form {
+  border-radius: 5px;
+}
 .form label,
 .form input,
 .form select,
@@ -304,7 +317,7 @@
   padding-bottom: 15px;
   padding-left: 15px;
   padding-right: 15px;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 .form input:focus,
 .form textarea:focus,
@@ -336,6 +349,10 @@
   max-width: 400px;
   margin: 30px 0;
   border-radius: 15px;
+}
+
+hr {
+  border-top: solid 1px rgba(0, 0, 0, 0.25);
 }
 
 .nav-menu {
@@ -392,6 +409,67 @@
   margin-left: 200px;
 }
 
+table {
+  border-collapse: collapse;
+}
+
+/* Dashboard Table */
+.dashboard-table--container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.dashboard-table {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+}
+.dashboard-table thead {
+  background-color: rgba(150, 150, 150, 0.1);
+  color: var(--100);
+  text-transform: capitalize;
+}
+.dashboard-table th {
+  font-weight: 500;
+}
+.dashboard-table th {
+  text-align: left;
+}
+.dashboard-table th,
+.dashboard-table td {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.dashboard-table th:first-child,
+.dashboard-table td:first-child,
+.dashboard-table th:last-child,
+.dashboard-table td:last-child {
+  width: 20px;
+}
+.dashboard-table th:not(:first-child):not(:last-child),
+.dashboard-table td:not(:last-child) {
+  border-right: solid 2px rgba(100, 100, 100, 0.1); /* Add left border to all td elements except the first one */
+}
+.dashboard-table th {
+  border-bottom: solid 2px rgba(100, 100, 100, 0.5);
+}
+.dashboard-table tr:not(:last-child) {
+  border-bottom: solid 2px rgba(100, 100, 100, 0.1);
+}
+
+.dashboard-table--container .table-header {
+  padding-bottom: 20px;
+}
+.dashboard-table--container .table-header hr {
+  margin-top: 5px;
+}
+.dashboard-table--container .table-header .btn {
+  margin-top: 20px;
+}
+
 .toast-notification {
   position: fixed;
   top: 10px;
@@ -405,7 +483,7 @@
   padding-bottom: 5px;
   padding-left: 15px;
   padding-right: 15px;
-  border-radius: 15px;
+  border-radius: 5px;
   font-family: "Lato", sans-serif;
   color: var(--247);
   font-size: 14px;
@@ -422,7 +500,22 @@
 }
 
 /* Headers */
+.dashboard-table-header {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  color: var(--dashboard);
+  text-transform: capitalize;
+}
+
 /* Subheaders */
+.dashboard-table-subheader {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: var(--100);
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
 /* Paragraphs */
 /* Links */
 .nav-link {
@@ -459,11 +552,29 @@
   margin-left: 5px;
 }
 .aside-link:hover {
-  background-color: var(--main-hover);
+  background-color: var(--dashboard-hover);
   color: white;
 }
 .aside-link.active {
-  border-left: solid 5px var(--main-hover);
+  border-left: solid 5px var(--dashboard-hover);
+}
+
+.icon-link {
+  transition: all 0.2s ease-in-out;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+}
+.icon-link i {
+  font-size: 13px;
+  color: var(--140);
+  transition: all 0.2s ease-in-out;
+}
+.icon-link:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.icon-link:hover i {
+  color: var(--20);
 }
 
 /* Blockquotes */
@@ -482,7 +593,7 @@ aside {
   left: 0;
   width: 200px;
   height: 100vh;
-  background-color: var(--main);
+  background-color: var(--dashboard);
   display: flex;
   flex-direction: column;
   font-family: "Lato", sans-serif;
