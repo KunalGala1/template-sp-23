@@ -9,7 +9,7 @@ forms.forEach((form) => {
     e.preventDefault();
 
     // Metadata
-    const method = form.dataset.method;
+    const method = form.dataset.method.toLowerCase();
     const name = form.name;
     const action = form.action;
 
@@ -139,7 +139,7 @@ const handleFileUploads = (
         promises.push(uploadFile(fileInput, formObject));
       } else {
         // No changes were made to the file input
-        promises.push(persistFile(action, formObject, [name, "body"]));
+        promises.push(persistFile(action, formObject, ["doc", "body"]));
       }
     }
   }

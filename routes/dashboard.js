@@ -28,35 +28,31 @@ router.get("/about", ensureAuthenticated, (req, res) => {
 });
 
 /* Content Model Put Routes */
-const documents = [{ name: "about" }];
+const docs = [{ name: "about" }];
 
-documents.forEach((document) => {
-  router.put(
-    "/" + document.name + "/:id",
-    ensureAuthenticated,
-    async (req, res) => {
-      try {
-        const updatedDocument = await Content.findByIdAndUpdate(
-          req.params.id,
-          {
-            body: JSON.stringify(req.body),
-          },
-          {
-            new: true,
-          }
-        );
-        res.json({
-          success: true,
-          updatedDocument,
-        });
-      } catch (error) {
-        res.status(500).json({
-          success: false,
-          error: "Something went wrong",
-        });
-      }
+docs.forEach((doc) => {
+  router.put("/" + doc.name + "/:id", ensureAuthenticated, async (req, res) => {
+    try {
+      const updatedDoc = await Content.findByIdAndUpdate(
+        req.params.id,
+        {
+          body: JSON.stringify(req.body),
+        },
+        {
+          new: true,
+        }
+      );
+      res.json({
+        success: true,
+        updatedDoc,
+      });
+    } catch (error) {
+      res.status(500).json({
+        success: false,
+        error: "Something went wrong",
+      });
     }
-  );
+  });
 });
 
 /* List Model Routes */
@@ -80,15 +76,15 @@ lists.forEach((list) => {
   /* Get Table of Complete Data Page*/
   router.get("/" + name, ensureAuthenticated, async (req, res) => {
     // Initialize variables
-    let documents = [],
+    let docs = [],
       options = {};
 
     if (content) {
       for (let i = 0; i < content.length; i++) {
         const data = await Content.findOne({ name: content[i] });
-        documents.push(data);
+        docs.push(data);
       }
-      options.content = documents;
+      options.content = docs;
     }
 
     const data = await Model.find({});
@@ -105,12 +101,12 @@ lists.forEach((list) => {
   /* Post New Document */
   router.post("/" + name, ensureAuthenticated, async (req, res) => {
     try {
-      const newDocument = await Model.create({
+      const newDoc = await Model.create({
         body: JSON.stringify(req.body),
       });
       res.json({
         success: true,
-        newDocument,
+        newDoc,
       });
     } catch (error) {
       res.status(500).json({
@@ -125,24 +121,25 @@ lists.forEach((list) => {
     "/" + name + "/:id/edit",
     ensureAuthenticated,
     async (req, res) => {
-      const document = await Model.findById(req.params.id);
-      res.render("admin/" + name + "/edit", { document });
+      const doc = await Model.findById(req.params.id);
+      const options = {};
+      res.render("admin/" + name + "/edit", { doc });
     }
   );
 
   /* Get Document */
   router.get("/" + name + "/:id", ensureAuthenticated, async (req, res) => {
-    const document = await Model.findById(req.params.id);
+    const doc = await Model.findById(req.params.id);
     res.json({
       success: true,
-      document,
+      doc,
     });
   });
 
   /* Put Document */
   router.put("/" + name + "/:id", ensureAuthenticated, async (req, res) => {
     try {
-      const updatedDocument = await Model.findByIdAndUpdate(
+      const updatedDoc = await Model.findByIdAndUpdate(
         req.params.id,
         {
           body: JSON.stringify(req.body),
@@ -153,7 +150,7 @@ lists.forEach((list) => {
       );
       res.json({
         success: true,
-        updatedDocument,
+        updatedDoc,
       });
     } catch (error) {
       res.status(500).json({
@@ -166,10 +163,10 @@ lists.forEach((list) => {
   /* Delete Document */
   router.delete("/" + name + "/:id", ensureAuthenticated, async (req, res) => {
     try {
-      const deletedDocument = await Model.findByIdAndDelete(req.params.id);
+      const deletedDoc = await Model.findByIdAndDelete(req.params.id);
       res.json({
         success: true,
-        deletedDocument,
+        deletedDoc,
       });
     } catch (error) {
       res.status(500).json({

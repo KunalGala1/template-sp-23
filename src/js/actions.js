@@ -7,14 +7,10 @@ export const responseAction = (name, method, data) => {
     // Event
     event: {
       post: () => {
-        window.location.replace(
-          `/dashboard/events/${data.newDocument._id}/edit`
-        );
+        window.location.replace(`/dashboard/events/${data.newDoc._id}/edit`);
       },
       delete: () => {
-        document
-          .querySelector(`[data-id="${data.deletedDocument._id}"]`)
-          .remove();
+        document.querySelector(`[data-id="${data.deletedDoc._id}"]`).remove();
       },
     },
   };

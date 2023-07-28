@@ -42,3 +42,21 @@
     </ul>
   </div>
 </aside>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    // Get current path
+    const path = window.location.pathname;
+
+    // Get all aside links
+    const links = document.querySelectorAll('.aside-link');
+
+    // Iterate over each link
+    links.forEach((link) => {
+      // If the link's href matches the current path, add the active class
+      if (link.getAttribute('href') === path) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
