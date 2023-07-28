@@ -40,3 +40,12 @@ $ts: (
     text-shadow: $key;
   }
 }
+
+@mixin hide-scrollbar {
+  &::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+  }
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

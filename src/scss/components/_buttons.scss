@@ -3,7 +3,6 @@
 @use "../theme/" as t;
 
 .btn {
-  @include a.transition;
   @include a.boxshadow(sm);
   @include l.padding(xs, sm);
   @include l.radius(xs);
@@ -15,6 +14,7 @@
 .btn-primary {
   background-color: var(--main);
   color: white;
+  @include a.transition;
   &:hover {
     background-color: var(--main-hover);
   }
@@ -22,6 +22,7 @@
 
 .btn-secondary {
   background-color: var(--secondary);
+  @include a.transition;
   &:hover {
     background-color: var(--secondary-hover);
   }
@@ -29,6 +30,7 @@
 
 .btn-success {
   background-color: var(--success);
+  color: white;
   &:hover {
     background-color: var(--success-hover);
   }
@@ -38,6 +40,15 @@
   background-color: var(--danger);
   &:hover {
     background-color: var(--danger-hover);
+  }
+}
+
+.no-btn {
+  background-color: transparent;
+  box-shadow: none;
+  color: var(--40);
+  &:hover {
+    background-color: rgba(150, 150, 150, 0.1);
   }
 }
 

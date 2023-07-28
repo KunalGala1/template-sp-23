@@ -2,16 +2,25 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
+const fs = require("fs");
+const path = require("path");
 
 /* Import Models */
 const User = require("../models/User");
 const Content = require("../models/Content");
 const Event = require("../models/Event");
 
+/* Models Map */
 const map = {
   User,
   Content,
   Event,
+};
+
+const fetchFormData = () => {
+  return (formData = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "../data/formData.json"), "utf8")
+  ));
 };
 
 /* Import Auth Configs */
@@ -95,7 +104,12 @@ lists.forEach((list) => {
 
   /* Get Add New Document Page */
   router.get("/" + name + "/new", ensureAuthenticated, (req, res) => {
-    res.render("admin/" + name + "/new");
+    // Initialize variables
+    let options = {};
+    const formData = fetchFormData();
+    options.formData = formData[name];
+
+    res.render("admin/operations/new", options);
   });
 
   /* Post New Document */
@@ -121,9 +135,14 @@ lists.forEach((list) => {
     "/" + name + "/:id/edit",
     ensureAuthenticated,
     async (req, res) => {
-      const doc = await Model.findById(req.params.id);
-      const options = {};
-      res.render("admin/" + name + "/edit", { doc });
+      // Initialize variables
+      let options = {};
+
+      const formData = fetchFormData();
+
+      options.doc = await Model.findById(req.params.id);
+      options.formData = formData[name];
+      res.render("admin/operations/edit", options);
     }
   );
 

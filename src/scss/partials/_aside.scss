@@ -15,10 +15,10 @@ aside {
 
   text-transform: capitalize;
 
-  .top {
+  @include l.max(md) {
+    display: none;
   }
-  .middle {
-  }
+
   .bottom {
     margin-top: auto;
   }

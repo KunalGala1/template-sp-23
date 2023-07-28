@@ -5,6 +5,9 @@
 /* Components */
 .sp-aside-left {
   margin-left: map-get(l.$spacing, aside);
+  @include l.max(md) {
+    margin-left: 0;
+  }
 }
 
 /* Utilities */

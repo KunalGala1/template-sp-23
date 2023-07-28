@@ -5,12 +5,15 @@ export const responseAction = (name, method, data) => {
       method: () => {},
     },
     // Event
-    event: {
+    events: {
       post: () => {
         window.location.replace(`/dashboard/events/${data.newDoc._id}/edit`);
       },
       delete: () => {
         document.querySelector(`[data-id="${data.deletedDoc._id}"]`).remove();
+      },
+      save_and_add_new: () => {
+        window.location.replace("/dashboard/events/new");
       },
     },
   };

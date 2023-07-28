@@ -13,7 +13,7 @@
 .secondary-header {
 }
 
-.dashboard-table-header {
+.dashboard-header {
   @include t.util;
   font-size: 20px;
   color: var(--dashboard);
@@ -28,7 +28,7 @@
 .secondary-subheader {
 }
 
-.dashboard-table-subheader {
+.dashboard-subheader {
   @include t.util;
   font-size: 16px;
   color: var(--100);

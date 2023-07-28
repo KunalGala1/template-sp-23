@@ -1,0 +1,18 @@
+{
+  "events": {
+    "metadata": {
+      "action": "/dashboard/events",
+      "enctype": "multipart/form-data",
+      "name": "events"
+    },
+    "fields": [
+      { "name": "title", "required": true },
+      { "type": "hidden", "name": "slug" },
+      { "type": "file", "label": "image" },
+      { "name": "date", "type": "date" },
+      { "name": "time", "type": "time" },
+      { "name": "location" },
+      { "tag": "textarea", "name": "description" }
+    ]
+  }
+}
