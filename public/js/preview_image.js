@@ -1,3 +1,5 @@
+import { toastNotification } from "./utils.js";
+
 document.addEventListener("DOMContentLoaded", function () {
   const fileInputs = document.querySelectorAll("input[type=file]");
   const preview = document.querySelector(".preview");
@@ -17,6 +19,19 @@ document.addEventListener("DOMContentLoaded", function () {
       if (files.length === 0) {
         return;
       }
+
+      // Check file type
+      let file = ev.target.files[0]; // get the uploaded file
+      let accept = ev.target.accept.split("/")[0]; // get accepted types
+
+      if (file.type.split("/")[0] !== accept) {
+        toastNotification("Invalid file type", "danger");
+        ev.target.value = ""; // reset the input
+        preview.innerHTML = ""; // reset the preview
+        return;
+      }
+
+      // TODO: add file name to label
 
       const reader = new FileReader();
       reader.onload = () => {
@@ -39,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
         input.className = "mg-t-sm";
         input.name = `${preview.parentNode.querySelector("input").name}-alt`;
         input.placeholder = "Image description...";
-        // input.setAttribute("novalidate");
+        input.setAttribute("novalidate", "true");
         preview.appendChild(input);
       };
 

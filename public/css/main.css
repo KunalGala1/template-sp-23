@@ -307,6 +307,15 @@
 .form textarea {
   font-family: "Roboto", sans-serif;
 }
+.form label.error, .form label.error:active,
+.form input.error,
+.form input.error:active,
+.form select.error,
+.form select.error:active,
+.form textarea.error,
+.form textarea.error:active {
+  outline: solid 1px var(--danger) !important;
+}
 .form label,
 .form select,
 .form select option {
@@ -334,6 +343,10 @@
 .form select:focus {
   outline: solid 1px var(--200);
 }
+.form input[type=date],
+.form input[type=time] {
+  width: max-content;
+}
 .form .item + .item {
   margin-top: 30px;
 }
@@ -348,7 +361,7 @@
 }
 
 .dashboard-form--wrapper {
-  background-color: var(--234);
+  background-color: var(--235);
   height: 100vh;
 }
 

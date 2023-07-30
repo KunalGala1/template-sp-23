@@ -4,15 +4,6 @@
 
 /* Headers */
 
-.header {
-}
-
-.primary-header {
-}
-
-.secondary-header {
-}
-
 .dashboard-header {
   @include t.util;
   font-size: 20px;
@@ -21,12 +12,6 @@
 }
 
 /* Subheaders */
-
-.primary-subheader {
-}
-
-.secondary-subheader {
-}
 
 .dashboard-subheader {
   @include t.util;
@@ -38,19 +23,7 @@
 
 /* Paragraphs */
 
-.primary-text {
-}
-
-.secondary-text {
-}
-
 /* Links */
-
-.link {
-}
-
-.primary-link {
-}
 
 .nav-link {
   color: var(--200);
@@ -118,9 +91,6 @@
 
 blockquote {
   font-style: italic;
-}
-
-.primary-quote {
 }
 
 /* Spans */

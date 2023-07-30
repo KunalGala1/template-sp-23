@@ -3,16 +3,25 @@
     "metadata": {
       "action": "/dashboard/events",
       "enctype": "multipart/form-data",
-      "name": "events"
+      "name": "events",
+      "display": "Event"
     },
     "fields": [
       { "name": "title", "required": true },
       { "type": "hidden", "name": "slug" },
-      { "type": "file", "label": "image" },
+      { "type": "file", "label": "image", "required": true },
       { "name": "date", "type": "date" },
       { "name": "time", "type": "time" },
       { "name": "location" },
       { "tag": "textarea", "name": "description" }
     ]
+  },
+  "about": {
+    "metadata": {
+      "action": "/dashboard/about",
+      "name": "about",
+      "display": "About"
+    },
+    "fields": [{ "tag": "textarea", "name": "about" }]
   }
 }

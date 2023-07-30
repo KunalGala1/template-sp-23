@@ -17,10 +17,56 @@ const map = {
   Event,
 };
 
-const fetchFormData = () => {
-  return (formData = JSON.parse(
+/* Fetch and Prepare Form Data */
+const fetchFormData = (key, method, doc) => {
+  /* Parse specfic key json */
+  const formData = JSON.parse(
     fs.readFileSync(path.join(__dirname, "../data/formData.json"), "utf8")
-  ));
+  )[key];
+
+  /* Prepare formData based on method */
+  switch (method.toLowerCase()) {
+    case "post":
+      formData.metadata.method = "POST";
+      break;
+    case "put":
+      if (!doc) {
+        console.error("error: doc is not defined");
+        break;
+      }
+      formData.metadata.method = "PUT";
+      formData.metadata.action += "/" + doc._id;
+      /* Prepare formData based on model constructor */
+      formData.metadata.saveAndAddNew = ["Content"].includes(
+        doc.constructor.modelName
+      )
+        ? false
+        : true;
+
+      const body = JSON.parse(doc.body);
+
+      formData.fields.forEach((field) => {
+        switch (field.type) {
+          case "hidden":
+            // Do nothing
+            break;
+          case "file":
+            field.file = body.file;
+            break;
+          default:
+            field.value = body[field.name];
+        }
+      });
+      break;
+    default:
+      break;
+  }
+
+  // Check on display name
+  formData.metadata.display =
+    formData.metadata.display ?? formData.metadata.name;
+
+  return formData;
 };
 
 /* Import Auth Configs */
@@ -32,8 +78,13 @@ router.get("/", ensureAuthenticated, (req, res) => {
   res.render("admin/dashboard");
 });
 
-router.get("/about", ensureAuthenticated, (req, res) => {
-  res.render("admin/about");
+router.get("/about", ensureAuthenticated, async (req, res) => {
+  let options = {};
+  const doc = await Content.findOne({ name: "about" });
+  const formData = fetchFormData("about", "put", doc);
+  options.doc = doc;
+  options.formData = formData;
+  res.render("admin/about", options);
 });
 
 /* Content Model Put Routes */
@@ -80,7 +131,7 @@ const Model_Nomenclature = (string) => {
 lists.forEach((list) => {
   /* Define Variables */
   const { name, model, content } = list;
-  const Model = map[Model_Nomenclature(model || name)];
+  const Model = map[model || Model_Nomenclature(name)];
 
   /* Get Table of Complete Data Page*/
   router.get("/" + name, ensureAuthenticated, async (req, res) => {
@@ -106,8 +157,8 @@ lists.forEach((list) => {
   router.get("/" + name + "/new", ensureAuthenticated, (req, res) => {
     // Initialize variables
     let options = {};
-    const formData = fetchFormData();
-    options.formData = formData[name];
+    const formData = fetchFormData(name, "post");
+    options.formData = formData;
 
     res.render("admin/operations/new", options);
   });
@@ -138,10 +189,10 @@ lists.forEach((list) => {
       // Initialize variables
       let options = {};
 
-      const formData = fetchFormData();
-
-      options.doc = await Model.findById(req.params.id);
-      options.formData = formData[name];
+      const doc = await Model.findById(req.params.id);
+      const formData = fetchFormData(name, "put", doc);
+      options.doc = doc;
+      options.formData = formData;
       res.render("admin/operations/edit", options);
     }
   );
