@@ -4,7 +4,21 @@
       "action": "/dashboard/events",
       "enctype": "multipart/form-data",
       "name": "events",
-      "display": "Event"
+      "display": "Event",
+      "sitemap": {
+        "loc": "http://localhost:5000/",
+        "changefreq": "daily",
+        "priority": 0.5
+      },
+      "map": {
+        "thead": ["title", "date", "time", "location"],
+        "tbody": [
+          "title",
+          { "type": "date", "key": "date" },
+          { "type": "time", "key": "time" },
+          "location"
+        ]
+      }
     },
     "fields": [
       { "name": "title", "required": true },

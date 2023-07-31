@@ -1,14 +1,14 @@
 <%
-const id = metadata.id ? metadata.id : '';
-const method = metadata.method ? metadata.method : 'GET';
 const action = metadata.action;
+const method = metadata.method ? metadata.method : 'GET';
+const sitemap = metadata.sitemap ? JSON.stringify(metadata.sitemap) : false;
 const name = metadata.name ? metadata.name : '';
 const display = metadata.display ? metadata.display : name.slice(0, -1);
 const enctype = metadata.enctype ? metadata.enctype : 'application/x-www-form-urlencoded';
 %>
 
 <div class="dashboard-form--wrapper pd-md">
-  <form class="form dashboard-form handle-form-submission" action="<%= action %>" data-method="<%= method %>" data-id="<%= id %>" enctype="<%= enctype %>" name="<%= name %>" data-display="<%= display %>" novalidate>
+  <form class="form dashboard-form handle-form-submission" action="<%= action %>" data-method="<%= method %>" data-sitemap="<%= sitemap %>" name="<%= name %>" data-display="<%= display %>" enctype="<%= enctype %>" novalidate>
 
     <div class="header flex justify-between pd-sm">
       <div>

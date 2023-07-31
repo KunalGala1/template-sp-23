@@ -5,21 +5,14 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard | Events</title>
+  <title>Dashboard | <%= tableData.name.charAt(0).toUpperCase() + tableData.name.slice(1) %></title>
   <%- include('../partials/head') %>
 </head>
 
 <body>
   <%- include('../partials/aside') %>
   <main class="sp-aside-left">
-    <%- include('../partials/table', {
-      name: 'events',
-      data,
-      map: {
-        thead: ['title', 'date', 'time', 'location', 'description'],
-        tbody: ['title', {type: 'date', key: 'date'}, {type: 'time', key: 'time'}, 'location', 'description']
-      }
-    }) %>
+    <%- include('../partials/table', tableData) %>
   </main>
 </body>
 

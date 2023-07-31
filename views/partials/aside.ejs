@@ -1,3 +1,28 @@
+<%
+const asideLinks = [
+  {name: "events", fa: "calendar-days"}, 
+  {name: "about", fa: "book"},
+];
+
+const generateAside = (links) => {
+  let html = '<ul>';
+
+  links.forEach(link => {
+    html += `
+    <li>
+      <a href="/dashboard/${link.name}" class="link aside-link">
+        <i class="fa-solid fa-${link.fa}"></i>
+        <span>${link.name}</span>
+      </a>
+    </li>`
+  });
+
+  html += '</ul>';
+
+  return html;
+}
+%>
+
 <aside>
   <div class="top">
     <ul>
@@ -16,20 +41,7 @@
     </ul>
   </div>
   <div class="middle">
-    <ul>
-      <li>
-        <a href="/dashboard/events" class="link aside-link">
-          <i class="fa-solid fa-calendar-days"></i>
-          <span>events</span>
-        </a>
-      </li>
-      <li>
-        <a href="/dashboard/about" class="link aside-link">
-          <i class="fa-solid fa-book"></i>
-          <span>about</span>
-        </a>
-      </li>
-    </ul>
+    <%- generateAside(asideLinks) %>
   </div>
   <div class="bottom">
     <ul>
@@ -45,25 +57,16 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', (event) => {
-    // Get current path
     const path = window.location.pathname;
-
-    // Split the path into parts
     const pathParts = path.split('/').filter(part => part !== '');
-
-    // Get all aside links
     const links = document.querySelectorAll('.aside-link');
 
     let found = false;
 
-    // Start from the end of the pathParts array
     for (let i = pathParts.length - 1; i >= 0; i--) {
-      // Construct a path to search for
       let searchPath = '/' + pathParts.slice(0, i + 1).join('/');
 
-      // Iterate over each link
       for (let link of links) {
-        // If the link's href matches the search path, add the active class
         if (link.getAttribute('href') === searchPath) {
           link.classList.add('active');
           found = true;
@@ -71,7 +74,6 @@
         }
       }
 
-      // If we found a match, we can stop searching
       if (found) {
         break;
       }

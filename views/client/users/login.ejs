@@ -9,11 +9,11 @@
   <%- include('../../partials/head') %>
 </head>
 
-<body id="login">
-  <main>
-    <h1>Sign in</h1>
-    <p>to continue to the dashboard</p>
-    <form action="/login" method="post" class="form primary-form">
+<body id="login" class="flex column pd-sm">
+  <main class="flex column align-stretch gap-sm txt sans">
+    <h1 class="txt center">Sign in</h1>
+    <p class="txt center">to continue to the dashboard</p>
+    <form action="/login" method="post" class="form primary-form pd-md">
       <div class="item">
         <div class="subitem">
           <label for="username">Username</label>
@@ -32,7 +32,7 @@
         </div>
       </div>
     </form>
-    <p><a href="/">Return to the main website</a></p>
+    <p class="txt center"><a href="/">Return to the main website</a></p>
   </main>
 </body>
 

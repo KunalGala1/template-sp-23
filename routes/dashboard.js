@@ -18,7 +18,7 @@ const map = {
 };
 
 /* Fetch and Prepare Form Data */
-const fetchFormData = (key, method, doc) => {
+const fetchFormData = (key, method = "", doc) => {
   /* Parse specfic key json */
   const formData = JSON.parse(
     fs.readFileSync(path.join(__dirname, "../data/formData.json"), "utf8")
@@ -78,19 +78,24 @@ router.get("/", ensureAuthenticated, (req, res) => {
   res.render("admin/dashboard");
 });
 
-router.get("/about", ensureAuthenticated, async (req, res) => {
-  let options = {};
-  const doc = await Content.findOne({ name: "about" });
-  const formData = fetchFormData("about", "put", doc);
-  options.doc = doc;
-  options.formData = formData;
-  res.render("admin/about", options);
-});
-
 /* Content Model Put Routes */
 const docs = [{ name: "about" }];
 
 docs.forEach((doc) => {
+  /* GET Document */
+  router.get("/" + doc.name, ensureAuthenticated, async (req, res) => {
+    let options = {};
+
+    const data = await Content.findOne({ name: doc.name });
+    const formData = fetchFormData(doc.name, "put", data);
+
+    options.doc = data;
+    options.formData = formData;
+
+    res.render("admin/static_document", options);
+  });
+
+  /* PUT Document */
   router.put("/" + doc.name + "/:id", ensureAuthenticated, async (req, res) => {
     try {
       const updatedDoc = await Content.findByIdAndUpdate(
@@ -148,9 +153,12 @@ lists.forEach((list) => {
     }
 
     const data = await Model.find({});
-    options.data = data;
+    const formData = fetchFormData(name);
+    const tableData = { name, data, map: formData.metadata.map };
 
-    res.render("admin/" + name, options);
+    options.tableData = tableData;
+
+    res.render("admin/dynamic_list", options);
   });
 
   /* Get Add New Document Page */

@@ -3,6 +3,7 @@ const handleTableObject = (j, k) => {
   const obj = map.tbody[k];
   const key = obj.key;
   const body = JSON.parse(data[j].body);
+  // TODO - format dates and times
   return body[key];
 }
 %>
@@ -75,7 +76,6 @@ const handleTableObject = (j, k) => {
             "success"
           );
           responseAction(`<%= name %>`, 'delete', data);
-          // todo - recount table rows and update documents # in header
         }
       });
     });

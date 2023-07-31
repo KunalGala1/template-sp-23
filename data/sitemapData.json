@@ -1,0 +1,31 @@
+{
+  "staticUrls": [
+    {
+      "loc": "http://localhost:5000/",
+      "lastmod": "2023-01-01",
+      "changefreq": "monthly",
+      "priority": "0.9"
+    },
+    {
+      "loc": "http://localhost:5000/about",
+      "lastmod": "2023-01-01",
+      "changefreq": "monthly",
+      "priority": "0.7"
+    },
+    {
+      "loc": "http://localhost:5000/events",
+      "lastmod": "2023-01-01",
+      "changefreq": "monthly",
+      "priority": "0.7"
+    },
+    {
+      "loc": "http://localhost:5000/contact",
+      "lastmod": "2023-01-01",
+      "changefreq": "monthly",
+      "priority": "0.7"
+    }
+  ],
+  "dynamicUrls": {
+    "models": ["Event"]
+  }
+}

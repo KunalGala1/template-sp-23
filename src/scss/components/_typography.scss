@@ -98,3 +98,15 @@ blockquote {
 span.wrap {
   display: inline-block;
 }
+
+/* General */
+.txt {
+  /* Text alignment */
+  &.center {
+    text-align: center;
+  }
+
+  &.sans {
+    @include t.sans;
+  }
+}
