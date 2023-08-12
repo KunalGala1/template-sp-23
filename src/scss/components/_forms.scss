@@ -68,6 +68,7 @@
   height: 100%;
   overflow: auto;
   @include a.hide-scrollbar;
+  background-color: white;
 
   input,
   textarea {
