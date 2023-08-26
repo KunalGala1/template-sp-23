@@ -449,10 +449,6 @@
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
 }
 
-hr {
-  border-top: solid 1px rgba(0, 0, 0, 0.25);
-}
-
 .nav-menu {
   display: flex;
   justify-content: space-around;
@@ -748,6 +744,14 @@ hr {
 
 .pd-l-xl {
   padding-left: 90px;
+}
+
+.mw-xs {
+  max-width: 575.98px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 table {

@@ -1,6 +1,6 @@
-@use "../abstracts/" as a;
-@use "../layout" as l;
-@use "../theme/" as t;
+@use '../abstracts/' as a;
+@use '../layout' as l;
+@use '../theme/' as t;
 
 /* Components */
 .sp-aside-left {
@@ -13,21 +13,21 @@
 /* Utilities */
 // Define the size variables in a map
 $sizes: (
-  "xs": 5px,
-  "sm": 15px,
-  "md": 30px,
-  "lg": 60px,
-  "xl": 90px,
+  'xs': 5px,
+  'sm': 15px,
+  'md': 30px,
+  'lg': 60px,
+  'xl': 90px,
 );
 
 // Define the directions in a map
 $directions: (
-  "": "",
+  '': '',
   // For all around
-  "t": "-top",
-  "r": "-right",
-  "b": "-bottom",
-  "l": "-left",
+  't': '-top',
+  'r': '-right',
+  'b': '-bottom',
+  'l': '-left',
 );
 
 // Iterate over each size
@@ -50,4 +50,9 @@ $directions: (
       padding#{nth($directionValue, 1)}: $sizeValue;
     }
   }
+}
+
+// Layout
+.mw-xs {
+  @include l.max-width(xs);
 }
