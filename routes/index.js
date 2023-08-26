@@ -1,20 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', async (req, res) => {
-  res.render('client/index');
-});
+const pages = [{ path: '', name: 'index' }, { path: 'lessons' }, { path: 'about' }, { path: 'events' }, { path: 'contact' }];
 
-router.get('/about', async (req, res) => {
-  res.render('client/about');
-});
-
-router.get('/events', async (req, res) => {
-  res.render('client/events');
-});
-
-router.get('/contact', async (req, res) => {
-  res.render('client/contact');
+pages.forEach(page => {
+  router.get(`/${page.path}`, async (req, res) => {
+    res.render(`client/${page.name || page.path}`);
+  });
 });
 
 module.exports = router;
