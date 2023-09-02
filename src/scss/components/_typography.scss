@@ -1,6 +1,6 @@
-@use "../abstracts/" as a;
-@use "../layout" as l;
-@use "../theme/" as t;
+@use '../abstracts/' as a;
+@use '../layout' as l;
+@use '../theme/' as t;
 
 /* Headers */
 
@@ -108,5 +108,12 @@ span.wrap {
 
   &.sans {
     @include t.sans;
+  }
+
+  @for $i from 10 through 30 {
+    $lh-value: calc($i / 10);
+    &[data-lh='#{$lh-value}'] {
+      line-height: $lh-value;
+    }
   }
 }
